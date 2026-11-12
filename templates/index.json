@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,9 +15,9 @@
         "badge": "New arrivals every week",
         "heading": "Curtains and bedsheets for every room.",
         "text": "<p>Blackout and printed curtains plus soft, everyday bedsheets. Order online and we deliver to your door.</p>",
-        "button_label_1": "Shop curtains",
+        "button_label_1": "Shop Curtains",
         "button_link_1": "shopify://collections/curtains",
-        "button_label_2": "Shop bedsheets",
+        "button_label_2": "Shop Bedsheets",
         "button_link_2": "shopify://collections/bedsheets",
         "image_position": "right",
         "color_scheme": "scheme-2",
@@ -112,6 +121,7 @@
         "products_to_show": 8,
         "title": "Best sellers",
         "heading_size": "h1",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "columns_desktop": 4,
