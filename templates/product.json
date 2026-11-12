@@ -45,7 +45,7 @@
           "settings": {
             "layout": "vertical",
             "icon_1": "truck",
-            "heading_1": "<strong>Delivery:</strong> [Delivery time] to your door",
+            "heading_1": "<strong>Delivery:</strong> 3–7 days to your door",
             "icon_2": "return",
             "heading_2": "<strong>Returns:</strong> [Return policy]",
             "icon_3": "lock",
@@ -85,7 +85,7 @@
           "settings": {
             "heading": "Shipping & returns",
             "icon": "truck",
-            "content": "<p>[Delivery times, shipping fees and return policy.]</p>"
+            "content": "<p>Delivery takes 3–7 days, anywhere in the Philippines.</p><p>[Shipping fees and return policy.]</p>"
           }
         },
         "share": {
