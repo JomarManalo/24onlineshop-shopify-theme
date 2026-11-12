@@ -121,6 +121,21 @@
                               width: settings.brand_image_width
                           }}
                         </div>
+                      {%- else -%}
+                        {%- comment -%} No brand image uploaded: show the bundled 24 OnlineShop logo. {%- endcomment -%}
+                        <a
+                          href="{{ routes.root_url }}"
+                          class="os24-footer-logo"
+                          style="--os24-footer-logo-width: {{ settings.brand_image_width }}px;"
+                        >
+                          <img
+                            src="{{ '24onlineshop-logo.png' | asset_url }}"
+                            alt="{{ shop.name | escape }}"
+                            width="{{ settings.brand_image_width }}"
+                            height="{{ settings.brand_image_width | times: 338 | divided_by: 396 }}"
+                            loading="lazy"
+                          >
+                        </a>
                       {%- endif -%}
                       {%- if settings.brand_headline != blank -%}
                         <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>

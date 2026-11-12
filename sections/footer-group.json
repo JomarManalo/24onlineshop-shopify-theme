@@ -29,7 +29,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Shop",
-            "menu": "main-menu"
+            "menu": "footer-shop"
           }
         },
         "help": {
@@ -38,12 +38,20 @@
             "heading": "Help",
             "menu": "footer"
           }
+        },
+        "contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Contact us",
+            "subtext": "<p>Messenger: [Facebook page link]</p><p>Viber / SMS: [Mobile number]</p><p>Email: [Email address]</p><p>Hours: [e.g. Mon–Sat, 9am–6pm]</p>"
+          }
         }
       },
       "block_order": [
         "brand",
         "shop",
-        "help"
+        "help",
+        "contact"
       ]
     }
   },
