@@ -1,0 +1,120 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="os24-trust color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_divider %} os24-trust--divider{% endif %}">
+  <div class="page-width section-{{ section.id }}-padding">
+    <ul class="os24-trust__list list-unstyled" role="list">
+      {%- for block in section.blocks -%}
+        <li class="os24-trust__item" {{ block.shopify_attributes }}>
+          <span class="os24-trust__icon">
+            {%- render 'icon-accordion', icon: block.settings.icon -%}
+          </span>
+          <span class="os24-trust__text">
+            {%- if block.settings.title != blank -%}
+              <strong class="os24-trust__title">{{ block.settings.title | escape }}</strong>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <span class="os24-trust__subtitle">{{ block.settings.text | escape }}</span>
+            {%- endif -%}
+          </span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "24 · Trust bar",
+  "tag": "section",
+  "class": "section os24-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show bottom divider",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "chat_bubble", "label": "Chat bubble" },
+            { "value": "ruler", "label": "Ruler" },
+            { "value": "price_tag", "label": "Price tag" },
+            { "value": "star", "label": "Star" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "check_mark", "label": "Check mark" },
+            { "value": "box", "label": "Box" }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Nationwide delivery"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "[Delivery time]"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "24 · Trust bar",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "truck", "title": "Nationwide delivery", "text": "[Delivery time]" } },
+        { "type": "item", "settings": { "icon": "return", "title": "Easy returns", "text": "[Return policy]" } },
+        { "type": "item", "settings": { "icon": "lock", "title": "Secure checkout", "text": "[Payment methods]" } },
+        { "type": "item", "settings": { "icon": "chat_bubble", "title": "Help with sizing", "text": "[Chat hours]" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

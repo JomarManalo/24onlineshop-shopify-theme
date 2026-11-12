@@ -1,0 +1,158 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "delivery_info": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "truck",
+            "heading_1": "<strong>Delivery:</strong> [Delivery time] to your door",
+            "icon_2": "return",
+            "heading_2": "<strong>Returns:</strong> [Return policy]",
+            "icon_3": "lock",
+            "heading_3": "<strong>Secure checkout:</strong> [Payment methods]"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "tab_features": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Features",
+            "icon": "check_mark",
+            "content": "<p>[Key features, e.g. light blocking level, heading type, lining.]</p>"
+          }
+        },
+        "tab_fabric": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fabric & care",
+            "icon": "washing",
+            "content": "<p>[Fabric composition and washing instructions.]</p>"
+          }
+        },
+        "tab_measuring": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Measuring guide",
+            "icon": "ruler",
+            "content": "<p>[How to measure your window: width, drop, and how much extra to allow.]</p>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p>[Delivery times, shipping fees and return policy.]</p>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "rating",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "delivery_info",
+        "description",
+        "tab_features",
+        "tab_fabric",
+        "tab_measuring",
+        "tab_shipping",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Complete the look",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-2",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sticky-atc": {
+      "type": "os24-sticky-atc",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "sticky-atc"
+  ]
+}

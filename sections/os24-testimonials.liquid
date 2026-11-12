@@ -1,0 +1,139 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="os24-reviews color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <div class="os24-section-head">
+        <h2 class="os24-section-head__title h1">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <ul class="os24-reviews__grid list-unstyled" role="list">
+      {%- for block in section.blocks -%}
+        <li class="os24-reviews__card" {{ block.shopify_attributes }}>
+          <figure class="os24-reviews__figure">
+            <div class="os24-stars" role="img" aria-label="{{ block.settings.rating }} out of 5 stars">
+              {%- for i in (1..5) -%}
+                <svg
+                  class="os24-stars__star{% if i > block.settings.rating %} os24-stars__star--empty{% endif %}"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6L2.5 9.3l6.6-.8z"/>
+                </svg>
+              {%- endfor -%}
+            </div>
+            <blockquote class="os24-reviews__quote">{{ block.settings.quote }}</blockquote>
+            <figcaption class="os24-reviews__author">
+              {{- block.settings.author | escape -}}
+              {%- if block.settings.verified %} · Verified buyer{% endif -%}
+            </figcaption>
+          </figure>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "24 · Testimonials",
+  "tag": "section",
+  "class": "section os24-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What customers say"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star rating",
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Review",
+          "default": "<p>[Add a real customer review from your store]</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Customer name",
+          "default": "[Customer name]"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show \"Verified buyer\"",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "24 · Testimonials",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+# Shopify CLI
+.shopify/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies (if using theme tooling)
+node_modules/
+
+# Store-specific theme settings (customizer data varies per environment)
+config/settings_data.json

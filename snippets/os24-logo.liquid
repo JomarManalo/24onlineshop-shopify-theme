@@ -1,0 +1,22 @@
+{%- comment -%}
+  Renders the 24 OnlineShop wordmark (curtain icon + text) as inline SVG/HTML.
+  Used by the header when no logo image is uploaded in Theme settings > Logo.
+
+  Accepts:
+  - inverse: {Boolean} Light text for dark backgrounds (optional)
+
+  Usage:
+  {% render 'os24-logo' %}
+  {% render 'os24-logo', inverse: true %}
+{%- endcomment -%}
+<span class="os24-logo{% if inverse %} os24-logo--inverse{% endif %}">
+  <svg class="os24-logo__mark" width="44" height="40" viewBox="0 0 44 40" aria-hidden="true" focusable="false">
+    <line x1="3" y1="4" x2="41" y2="4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="3" cy="4" r="3" fill="currentColor"/>
+    <circle cx="41" cy="4" r="3" fill="currentColor"/>
+    <path d="M5 6 H21 C19 16 15 24 10 29 L10 38 H5 Z" fill="#F28C1E"/>
+    <path d="M39 6 H23 C25 16 29 24 34 29 L34 38 H39 Z" fill="#F2B824"/>
+  </svg>
+  <span class="os24-logo__text" aria-hidden="true">24 <span class="os24-logo__shop">OnlineShop</span></span>
+  <span class="visually-hidden">{{ shop.name }}</span>
+</span>

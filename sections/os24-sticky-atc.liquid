@@ -1,0 +1,49 @@
+{%- comment -%}
+  Mobile-only sticky add-to-cart bar for the product template.
+  It forwards clicks to the main product form's submit button, so the
+  selected variant, quantity and cart drawer behavior all stay in sync
+  with the main-product section.
+{%- endcomment -%}
+{%- if product != blank -%}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  <os24-sticky-atc class="os24-sticky-atc color-{{ section.settings.color_scheme }}" hidden>
+    <div class="os24-sticky-atc__info">
+      <span class="os24-sticky-atc__title">{{ product.title | escape }}</span>
+      <span class="os24-sticky-atc__price" data-sticky-price>
+        {{- current_variant.price | money -}}
+      </span>
+    </div>
+    <button type="button" class="button os24-sticky-atc__button" data-sticky-add>
+      {%- if current_variant.available -%}
+        {{ 'products.product.add_to_cart' | t }}
+      {%- else -%}
+        {{ 'products.product.sold_out' | t }}
+      {%- endif -%}
+    </button>
+  </os24-sticky-atc>
+
+  <script src="{{ 'os24-sticky-atc.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "24 · Sticky add to cart",
+  "tag": "section",
+  "class": "os24-sticky-atc-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows a bar fixed to the bottom of the screen on phones once the main Add to cart button scrolls out of view."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}

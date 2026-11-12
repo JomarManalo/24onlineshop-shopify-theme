@@ -1,0 +1,307 @@
+{
+  "sections": {
+    "hero": {
+      "type": "os24-hero",
+      "settings": {
+        "badge": "New arrivals every week",
+        "heading": "Curtains for every window in your home.",
+        "text": "<p>Blackout, sheer and everyday curtains, plus rods and tiebacks. Order online and we deliver to your door.</p>",
+        "button_label_1": "Shop curtains",
+        "button_link_1": "shopify://collections/printed-curtains",
+        "button_label_2": "Shop by room",
+        "button_link_2": "",
+        "image_position": "right",
+        "color_scheme": "scheme-2",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "trust_bar": {
+      "type": "os24-trust-bar",
+      "blocks": {
+        "delivery": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Nationwide delivery",
+            "text": "[Delivery time]"
+          }
+        },
+        "returns": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy returns",
+            "text": "[Return policy]"
+          }
+        },
+        "checkout": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "[Payment methods]"
+          }
+        },
+        "sizing": {
+          "type": "item",
+          "settings": {
+            "icon": "chat_bubble",
+            "title": "Help with sizing",
+            "text": "[Chat hours]"
+          }
+        }
+      },
+      "block_order": [
+        "delivery",
+        "returns",
+        "checkout",
+        "sizing"
+      ],
+      "settings": {
+        "show_divider": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "categories": {
+      "type": "collection-list",
+      "blocks": {
+        "blackout": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "blackout-curtains"
+          }
+        },
+        "printed": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "printed-curtains"
+          }
+        }
+      },
+      "block_order": [
+        "blackout",
+        "printed"
+      ],
+      "settings": {
+        "title": "Shop by category",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "best_sellers": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "Best sellers",
+        "heading_size": "h1",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-2",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "promo": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Limited time",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Up to [X]% off blackout curtains",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sleep better and keep rooms cooler. Sale ends [DATE].</p>",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the sale",
+            "button_link": "shopify://collections/blackout-curtains",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "rooms": {
+      "type": "os24-shop-by-room",
+      "blocks": {
+        "living": {
+          "type": "room",
+          "settings": {
+            "title": "Living room",
+            "link": ""
+          }
+        },
+        "bedroom": {
+          "type": "room",
+          "settings": {
+            "title": "Bedroom",
+            "link": ""
+          }
+        },
+        "kitchen": {
+          "type": "room",
+          "settings": {
+            "title": "Kitchen",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "living",
+        "bedroom",
+        "kitchen"
+      ],
+      "settings": {
+        "heading": "Shop by room",
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "testimonials": {
+      "type": "os24-testimonials",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>[Add a real customer review from your store]</p>",
+            "author": "[Customer name]",
+            "verified": true
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>[Add a real customer review from your store]</p>",
+            "author": "[Customer name]",
+            "verified": true
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>[Add a real customer review from your store]</p>",
+            "author": "[Customer name]",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "heading": "What customers say",
+        "color_scheme": "scheme-2",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get deals before anyone else",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Join our list for new arrivals and members-only sales.</p>"
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email_form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust_bar",
+    "categories",
+    "best_sellers",
+    "promo",
+    "rooms",
+    "testimonials",
+    "newsletter"
+  ]
+}
