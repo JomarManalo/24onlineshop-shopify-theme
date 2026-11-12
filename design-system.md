@@ -10,6 +10,10 @@ Design drafts: https://claude.ai/artifact/9BH3JUirjUBUdTwSPvwFso (Homepage + Pro
 Friendly, bright and good value. Warm off-white pages with black type, and orange used only as
 an accent.
 
+**Catalog:** curtains and bedsheets, the same product lines and payment methods as JMV Home
+Decor (jmv-theme-dev). The footer payment icon row is hidden, as on JMV, because payments are
+set up with Philippine methods in Shopify admin.
+
 **Color balance:** about 60% warm white or cream, 30% black, and 10% orange or yellow.
 
 ## Palette
@@ -63,6 +67,7 @@ an accent.
 | `sections/os24-shop-by-room.liquid` | Room tiles with label overlays |
 | `sections/os24-testimonials.liquid` | Star-rated review cards |
 | `sections/os24-sticky-atc.liquid` + `assets/os24-sticky-atc.js` | Mobile-only sticky add-to-cart bar that mirrors the main product form |
+| `sections/collection-single-variant-collection-template.liquid`, `snippets/card-product-bedsheet-variant.liquid`, `templates/collection.single-variant-collection-template.json` | Ported from jmv-theme-dev: collection grid with one card per Color (bedsheets). Assign the `single-variant-collection-template` template to the Bedsheets collection |
 
 Everything else is stock Dawn, configured through templates and settings (collection list,
 featured collection, image with text, newsletter, main product, related products).
