@@ -270,6 +270,28 @@ a.product__text {
   padding: 0 1rem;
 }
 
+/* Description split into collapsible rows at each H2 */
+.product__description--accordion .accordion {
+  margin-top: 2rem;
+}
+
+.product__description--accordion > .accordion:first-child,
+.product__description--accordion .accordion + .accordion {
+  margin-top: 0;
+}
+
+.product__description--accordion .accordion__content > :first-child {
+  margin-top: 0;
+}
+
+.product__description--accordion .accordion__content > :last-child {
+  margin-bottom: 0;
+}
+
+.product__description-intro > :first-child {
+  margin-top: 0;
+}
+
 .product .price .badge {
   margin-bottom: 0.5rem;
 }

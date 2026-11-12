@@ -54,38 +54,9 @@
         },
         "description": {
           "type": "description",
-          "settings": {}
-        },
-        "tab_features": {
-          "type": "collapsible_tab",
           "settings": {
-            "heading": "Features",
-            "icon": "check_mark",
-            "content": "<p>[Key features, e.g. light blocking level, heading type, lining.]</p>"
-          }
-        },
-        "tab_fabric": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Fabric & care",
-            "icon": "washing",
-            "content": "<p>[Fabric composition and washing instructions.]</p>"
-          }
-        },
-        "tab_measuring": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Measuring guide",
-            "icon": "ruler",
-            "content": "<p>[How to measure your window: width, drop, and how much extra to allow.]</p>"
-          }
-        },
-        "tab_shipping": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & returns",
-            "icon": "truck",
-            "content": "<p>Delivery takes 3–7 days, anywhere in the Philippines. Shipping fees are shown at checkout.</p><p>Returns are accepted for damaged, defective or incorrect items reported within 48 hours of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>"
+            "split_headings": true,
+            "open_first": false
           }
         },
         "share": {
@@ -105,10 +76,6 @@
         "buy_buttons",
         "delivery_info",
         "description",
-        "tab_features",
-        "tab_fabric",
-        "tab_measuring",
-        "tab_shipping",
         "share"
       ],
       "settings": {
