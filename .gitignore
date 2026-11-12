@@ -14,6 +14,3 @@ desktop.ini
 
 # Dependencies (if using theme tooling)
 node_modules/
-
-# Store-specific theme settings (customizer data varies per environment)
-config/settings_data.json
