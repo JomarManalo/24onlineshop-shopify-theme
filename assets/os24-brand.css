@@ -291,6 +291,81 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .hxl {
   font-weight: 600;
 }
 
+/* ---------- Matching sets ---------- */
+.os24-sets__intro {
+  margin: 0.8rem 0 0;
+  color: rgba(var(--color-foreground), 0.75);
+  max-width: 56rem;
+}
+
+.os24-sets__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 2.4rem;
+  margin: 0;
+}
+
+.os24-sets__card {
+  background: rgb(var(--os24-cream));
+  border-radius: 2rem;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.os24-sets__media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.os24-sets__image {
+  aspect-ratio: 3 / 4;
+  border-radius: 1.4rem;
+}
+
+.os24-sets__body {
+  padding: 0 0.8rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.os24-sets__title {
+  margin: 0;
+}
+
+.os24-sets__links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.os24-sets__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 4.4rem;
+  padding: 1rem 1.4rem;
+  border: 2px solid rgb(var(--os24-ink));
+  border-radius: 1.2rem;
+  color: rgb(var(--os24-ink));
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color var(--duration-short) ease;
+}
+
+.os24-sets__link:hover {
+  background: rgb(var(--os24-orange));
+}
+
+.os24-sets__price {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
 /* ---------- Testimonials ---------- */
 .os24-reviews__grid {
   display: grid;

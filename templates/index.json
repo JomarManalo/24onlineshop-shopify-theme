@@ -118,7 +118,7 @@
     "best_sellers": {
       "type": "featured-collection",
       "settings": {
-        "collection": "all",
+        "collection": "best-sellers",
         "products_to_show": 8,
         "title": "Best sellers",
         "heading_size": "h1",
@@ -149,7 +149,7 @@
         "caption": {
           "type": "caption",
           "settings": {
-            "caption": "Limited time",
+            "caption": "Just in for the holidays",
             "text_style": "caption-with-letter-spacing",
             "text_size": "medium"
           }
@@ -157,22 +157,22 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Up to [X]% off blackout curtains",
+            "heading": "Christmas curtains & bedsheets are here",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Sleep better and keep rooms cooler. Sale ends [DATE].</p>",
+            "text": "<p>Festive reds, greens and snowflake prints for every room. Pair a curtain with its matching bedsheet for the full holiday look.</p>",
             "text_style": "body"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Shop the sale",
-            "button_link": "shopify://collections/blackout-curtains",
+            "button_label": "Shop Christmas",
+            "button_link": "shopify://collections/christmas",
             "button_style_secondary": false
           }
         }
@@ -195,7 +195,8 @@
         "section_color_scheme": "scheme-3",
         "color_scheme": "scheme-3",
         "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 64,
+        "image": "shopify://shop_images/os24-christmas-banner.png"
       }
     },
     "rooms": {
@@ -204,29 +205,32 @@
         "living": {
           "type": "room",
           "settings": {
+            "image": "shopify://shop_images/os24-room-living.png",
             "title": "Living room",
-            "link": ""
+            "link": "shopify://collections/curtains"
           }
         },
         "bedroom": {
           "type": "room",
           "settings": {
+            "image": "shopify://shop_images/os24-room-bedroom.png",
             "title": "Bedroom",
-            "link": ""
+            "link": "shopify://collections/bedsheets"
           }
         },
-        "kitchen": {
+        "kids": {
           "type": "room",
           "settings": {
-            "title": "Kitchen",
-            "link": ""
+            "image": "shopify://shop_images/os24-room-kids.jpg",
+            "title": "Kids' room",
+            "link": "shopify://collections/kids-room"
           }
         }
       },
       "block_order": [
         "living",
         "bedroom",
-        "kitchen"
+        "kids"
       ],
       "settings": {
         "heading": "Shop by room",
@@ -310,6 +314,56 @@
         "padding_top": 72,
         "padding_bottom": 72
       }
+    },
+    "matching_sets": {
+      "type": "os24-matching-sets",
+      "blocks": {
+        "leaves": {
+          "type": "set",
+          "settings": {
+            "title": "Leaves and Floral",
+            "curtain": "leaves-and-floral-orange-curtain",
+            "bedsheet": "leaves-and-floral-bedsheet"
+          }
+        },
+        "garden": {
+          "type": "set",
+          "settings": {
+            "title": "Green Garden",
+            "curtain": "green-garden-curtain",
+            "bedsheet": "green-garden-bedsheet"
+          }
+        },
+        "flamingo": {
+          "type": "set",
+          "settings": {
+            "title": "Palms Flamingo",
+            "curtain": "palms-flamingo-cream-curtain",
+            "bedsheet": "palms-flamingo"
+          }
+        },
+        "sunflower": {
+          "type": "set",
+          "settings": {
+            "title": "Vintage Sunflower",
+            "curtain": "vintage-sunflower-yellow-curtain",
+            "bedsheet": "vintage-sunflower-bedsheet"
+          }
+        }
+      },
+      "block_order": [
+        "leaves",
+        "garden",
+        "flamingo",
+        "sunflower"
+      ],
+      "settings": {
+        "heading": "Matching curtain & bedsheet sets",
+        "text": "Same print, made to go together. Pick the curtain and the bedsheet in one design.",
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
     }
   },
   "order": [
@@ -317,6 +371,7 @@
     "trust_bar",
     "categories",
     "best_sellers",
+    "matching_sets",
     "promo",
     "rooms",
     "testimonials",
