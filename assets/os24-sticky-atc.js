@@ -18,14 +18,21 @@ if (!customElements.get('os24-sticky-atc')) {
         this.hidden = false;
         this.button.addEventListener('click', this.onClick.bind(this));
 
-        this.observer = new IntersectionObserver(
-          ([entry]) => {
-            const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-            this.classList.toggle('is-visible', scrolledPast);
-          },
-          { threshold: 0 }
-        );
-        this.observer.observe(this.mainButton);
+        // Show the bar once the main button is above the viewport. Checked on every
+        // scroll (not only on intersection changes) so fast flings, anchor jumps and
+        // restored scroll positions are handled too.
+        this.updateVisibility = this.updateVisibility.bind(this);
+        this.onScroll = () => {
+          if (this.ticking) return;
+          this.ticking = true;
+          requestAnimationFrame(() => {
+            this.ticking = false;
+            this.updateVisibility();
+          });
+        };
+        window.addEventListener('scroll', this.onScroll, { passive: true });
+        window.addEventListener('resize', this.onScroll, { passive: true });
+        this.updateVisibility();
 
         this.sync = this.sync.bind(this);
         this.mutation = new MutationObserver(this.sync);
@@ -42,19 +49,22 @@ if (!customElements.get('os24-sticky-atc')) {
       }
 
       disconnectedCallback() {
-        this.observer?.disconnect();
+        window.removeEventListener('scroll', this.onScroll);
+        window.removeEventListener('resize', this.onScroll);
         this.mutation?.disconnect();
         this.unsubscribe?.();
+      }
+
+      updateVisibility() {
+        if (!this.mainButton) return;
+        const scrolledPast = this.mainButton.getBoundingClientRect().bottom < 0;
+        this.classList.toggle('is-visible', scrolledPast);
       }
 
       rebind() {
         const button = document.querySelector('[id^="ProductSubmitButton-"]');
         const price = document.querySelector('[id^="price-template"]');
-        if (button && button !== this.mainButton) {
-          this.observer.unobserve(this.mainButton);
-          this.mainButton = button;
-          this.observer.observe(button);
-        }
+        if (button) this.mainButton = button;
         if (price) this.mainPrice = price;
         this.mutation.disconnect();
         this.mutation.observe(this.mainButton, { attributes: true, childList: true, subtree: true, characterData: true });
@@ -62,6 +72,7 @@ if (!customElements.get('os24-sticky-atc')) {
           this.mutation.observe(this.mainPrice, { childList: true, subtree: true, characterData: true });
         }
         this.sync();
+        this.updateVisibility();
       }
 
       sync() {

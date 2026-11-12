@@ -366,6 +366,32 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .hxl {
   font-size: 1.4rem;
 }
 
+/* Phones: matching sets and rooms become swipeable rows instead of long stacks. */
+@media screen and (max-width: 749px) {
+  .os24-sets__grid,
+  .os24-rooms__grid {
+    display: flex;
+    gap: 1.2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.5rem;
+    margin-inline: -1.5rem;
+    padding: 0 1.5rem 1.2rem;
+    scrollbar-width: none;
+  }
+
+  .os24-sets__grid::-webkit-scrollbar,
+  .os24-rooms__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .os24-sets__card,
+  .os24-rooms__item {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+}
+
 /* ---------- Testimonials ---------- */
 .os24-reviews__grid {
   display: grid;
