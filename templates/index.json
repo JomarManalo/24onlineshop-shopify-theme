@@ -19,6 +19,7 @@
         "button_link_1": "shopify://collections/curtains",
         "button_label_2": "Shop Bedsheets",
         "button_link_2": "shopify://collections/bedsheets",
+        "image": "shopify://shop_images/24onlineshop-hero-banner.png",
         "image_position": "right",
         "color_scheme": "scheme-2",
         "padding_top": 64,
