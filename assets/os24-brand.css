@@ -38,36 +38,19 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .hxl {
 .os24-logo {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  color: rgb(var(--color-foreground));
 }
 
-.os24-logo__mark {
-  flex-shrink: 0;
-  width: 4.4rem;
-  height: 4rem;
-}
-
-.os24-logo__text {
-  font-family: var(--font-heading-family);
-  font-weight: 800;
-  font-size: 2.4rem;
-  line-height: 1;
-  letter-spacing: -0.05rem;
-  white-space: nowrap;
-}
-
-.os24-logo__shop {
-  font-weight: 700;
-}
-
-.os24-logo--inverse .os24-logo__shop {
-  color: rgb(var(--os24-marigold));
+.os24-logo__img {
+  display: block;
+  width: var(--os24-logo-width, 10rem);
+  max-width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 749px) {
-  .os24-logo__mark { width: 3.6rem; height: 3.2rem; }
-  .os24-logo__text { font-size: 2rem; }
+  .os24-logo__img {
+    width: min(var(--os24-logo-width, 10rem), 7.6rem);
+  }
 }
 
 /* ---------- Shared section pieces ---------- */

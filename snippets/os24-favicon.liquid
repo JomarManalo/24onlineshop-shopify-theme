@@ -1,0 +1,17 @@
+{%- comment -%}
+  Favicon links for the 24 OnlineShop theme.
+  If a favicon is uploaded in Theme settings > Logo, that image is used.
+  Otherwise the bundled curtain mark (assets/os24-favicon.*) is used.
+
+  Usage:
+  {% render 'os24-favicon' %}
+{%- endcomment -%}
+{%- if settings.favicon != blank -%}
+  <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180, height: 180 }}" sizes="180x180">
+{%- else -%}
+  <link rel="icon" href="{{ 'os24-favicon.svg' | asset_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ 'os24-favicon-32.png' | asset_url }}" type="image/png" sizes="32x32">
+  <link rel="icon" href="{{ 'os24-favicon-48.png' | asset_url }}" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="{{ 'os24-favicon-180.png' | asset_url }}" sizes="180x180">
+{%- endif -%}

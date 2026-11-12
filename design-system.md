@@ -55,7 +55,9 @@ an accent.
 | File | Purpose |
 |---|---|
 | `assets/os24-brand.css` | Global brand layer: logo, sale price color, custom section styles, delivery box, sticky add-to-cart |
-| `snippets/os24-logo.liquid` | Curtain-icon wordmark. The header shows it when no logo image is uploaded |
+| `assets/24onlineshop-logo.png` | Original logo with the grid background removed (transparent PNG, 396×338) |
+| `snippets/os24-logo.liquid` | Shows the original logo in the header when no logo image is uploaded; width follows Theme settings › Logo width (default 100px, max 76px on phones) |
+| `assets/os24-favicon.svg` + `os24-favicon-32/48/180.png`, `snippets/os24-favicon.liquid` | Curtain-mark favicon; a favicon uploaded in Theme settings takes priority |
 | `sections/os24-hero.liquid` | Split hero: badge, heading, text, 2 buttons, image |
 | `sections/os24-trust-bar.liquid` | Up to 4 icon + text items |
 | `sections/os24-shop-by-room.liquid` | Room tiles with label overlays |
