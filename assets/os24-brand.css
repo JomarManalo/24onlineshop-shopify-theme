@@ -45,11 +45,30 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .hxl {
   width: var(--os24-logo-width, 10rem);
   max-width: 100%;
   height: auto;
+  transition: width var(--duration-default) ease;
 }
 
 @media screen and (max-width: 749px) {
   .os24-logo__img {
     width: min(var(--os24-logo-width, 10rem), 7.6rem);
+  }
+}
+
+/* Header stays visible while scrolling (Header › Sticky header: "Always,
+   reduce logo size"); shrink the logo so the sticky bar takes less room. */
+.scrolled-past-header .os24-logo__img {
+  width: calc(var(--os24-logo-width, 10rem) * 0.6);
+}
+
+@media screen and (max-width: 749px) {
+  .scrolled-past-header .os24-logo__img {
+    width: min(calc(var(--os24-logo-width, 10rem) * 0.6), 5.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .os24-logo__img {
+    transition: none;
   }
 }
 
