@@ -12,8 +12,10 @@
   }
 {%- endstyle -%}
 
+<script src="{{ 'os24-slider.js' | asset_url }}" defer="defer"></script>
+
 <div class="os24-sets color-{{ section.settings.color_scheme }} gradient">
-  <div class="page-width section-{{ section.id }}-padding">
+  <os24-slider class="page-width section-{{ section.id }}-padding">
     <div class="os24-section-head">
       <div>
         {%- if section.settings.heading != blank -%}
@@ -23,9 +25,35 @@
           <p class="os24-sets__intro">{{ section.settings.text | escape }}</p>
         {%- endif -%}
       </div>
+
+      <div class="os24-slider__nav" data-slider-nav>
+        <button
+          type="button"
+          class="os24-slider__button"
+          data-slider-prev
+          aria-controls="Os24Sets-{{ section.id }}"
+          aria-label="Previous sets"
+          disabled
+        >
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20">
+            <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="os24-slider__button"
+          data-slider-next
+          aria-controls="Os24Sets-{{ section.id }}"
+          aria-label="Next sets"
+        >
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20">
+            <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <ul class="os24-sets__grid list-unstyled" role="list">
+    <ul id="Os24Sets-{{ section.id }}" class="os24-sets__grid list-unstyled" role="list" data-slider-track>
       {%- for block in section.blocks -%}
         {%- assign curtain = block.settings.curtain -%}
         {%- assign bedsheet = block.settings.bedsheet -%}
@@ -56,7 +84,7 @@
                     | image_tag:
                       loading: 'lazy',
                       widths: '300, 450, 600, 700',
-                      sizes: '(min-width: 990px) 25vw, 50vw',
+                      sizes: '(min-width: 990px) 18vw, (min-width: 750px) 25vw, 45vw',
                       class: 'os24-media__img',
                       alt: ''
                   }}
@@ -97,7 +125,7 @@
         </li>
       {%- endfor -%}
     </ul>
-  </div>
+  </os24-slider>
 </div>
 
 {% schema %}

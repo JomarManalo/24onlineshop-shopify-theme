@@ -343,11 +343,70 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .hxl {
   max-width: 56rem;
 }
 
+/* One row that slides: 3 cards on desktop, 2 on tablet, 1 + a peek on phones.
+   os24-slider.js moves it with the prev/next buttons. */
 .os24-sets__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  display: flex;
   gap: 2.4rem;
   margin: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.os24-sets__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.os24-sets__card {
+  flex: 0 0 calc((100% - 2.4rem) / 2);
+  min-width: 0;
+  box-sizing: border-box; /* include the card padding so exactly 3 fit */
+  scroll-snap-align: start;
+}
+
+@media screen and (min-width: 990px) {
+  .os24-sets__card {
+    flex-basis: calc((100% - 2 * 2.4rem) / 3);
+  }
+}
+
+os24-slider {
+  display: block;
+}
+
+/* Prev / next buttons, shown in the section heading row. */
+.os24-slider__nav {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.os24-slider__nav[hidden] {
+  display: none;
+}
+
+.os24-slider__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  padding: 0;
+  border: 2px solid rgb(var(--os24-ink));
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(var(--os24-ink));
+  cursor: pointer;
+  transition: background-color var(--duration-short) ease, opacity var(--duration-short) ease;
+}
+
+.os24-slider__button:hover:not(:disabled) {
+  background: rgb(var(--os24-orange));
+}
+
+.os24-slider__button:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 .os24-sets__card {
