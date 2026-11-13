@@ -33,7 +33,7 @@
     <div class="os24-contact__grid">
       <div class="os24-contact__aside">
         <h2 class="os24-contact__subhead h3">Talk to us</h2>
-        {% render 'os24-contact-links', style: 'buttons' %}
+        {% render 'os24-contact-links', style: 'buttons', hide_email: true %}
 
         <ul class="os24-contact__facts list-unstyled" role="list">
           {%- for block in section.blocks -%}

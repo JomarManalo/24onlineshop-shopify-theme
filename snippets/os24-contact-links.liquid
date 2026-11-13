@@ -5,11 +5,16 @@
 
   Accepts:
   - style: {String} 'buttons' or 'list'
+  - hide_email: {Boolean} true to leave out the email link (the Contact page does this,
+    since its form already reaches the store's email)
 {%- endcomment -%}
 {%- liquid
   assign phone = settings.os24_phone | strip
   assign phone_link = phone | remove: ' ' | remove: '-'
   assign email = settings.os24_email | strip
+  if hide_email
+    assign email = ''
+  endif
 -%}
 <ul class="os24-contact-links os24-contact-links--{{ style }} list-unstyled" role="list">
   {%- if settings.os24_messenger_url != blank -%}
