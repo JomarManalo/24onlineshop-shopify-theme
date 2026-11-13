@@ -1,0 +1,60 @@
+{%- comment -%}
+  Footer payment icons: the methods 24 OnlineShop accepts (no COD).
+  Visa and Mastercard use Shopify's built-in icons; GCash and Maya are simple
+  brand-colour badges in the same 38 × 24 size. To add or remove a method,
+  edit the list below.
+{%- endcomment -%}
+<ul class="list list-payment" role="list">
+  <li class="list-payment__item">
+    {{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+  </li>
+  <li class="list-payment__item">
+    {{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+  </li>
+  <li class="list-payment__item">
+    <svg
+      class="icon icon--full-color"
+      viewBox="0 0 38 24"
+      width="38"
+      height="24"
+      role="img"
+      aria-labelledby="os24-pi-gcash"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title id="os24-pi-gcash">GCash</title>
+      <rect width="38" height="24" rx="3" fill="#007DFE"/>
+      <text
+        x="19"
+        y="15.5"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="9"
+        font-weight="700"
+        fill="#fff"
+      >GCash</text>
+    </svg>
+  </li>
+  <li class="list-payment__item">
+    <svg
+      class="icon icon--full-color"
+      viewBox="0 0 38 24"
+      width="38"
+      height="24"
+      role="img"
+      aria-labelledby="os24-pi-maya"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title id="os24-pi-maya">Maya</title>
+      <rect width="38" height="24" rx="3" fill="#0B0B0B"/>
+      <text
+        x="19"
+        y="15.5"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10"
+        font-weight="700"
+        fill="#00D66C"
+      >maya</text>
+    </svg>
+  </li>
+</ul>

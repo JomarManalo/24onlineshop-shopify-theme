@@ -130,6 +130,96 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .hxl {
   height: auto;
 }
 
+/* Footer accordion (Shop / Help / Contact us). Collapsible on phones only;
+   from 750px the section script keeps every panel open. */
+.os24-footer-acc__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  list-style: none;
+}
+
+.os24-footer-acc__summary::-webkit-details-marker {
+  display: none;
+}
+
+.os24-footer-acc__icon {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .footer-block.grid__item:has(> .os24-footer-acc) {
+    margin: 0;
+    border-top: 1px solid rgba(var(--color-foreground), 0.15);
+  }
+
+  .footer-block.grid__item:has(> .os24-footer-acc):last-child {
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.15);
+  }
+
+  .os24-footer-acc__summary {
+    min-height: 5.6rem;
+    cursor: pointer;
+  }
+
+  .os24-footer-acc__summary .footer-block__heading {
+    margin: 0;
+  }
+
+  .os24-footer-acc__summary:focus-visible {
+    outline: 2px solid rgb(var(--os24-marigold));
+    outline-offset: 2px;
+  }
+
+  /* Plus sign that turns into a minus when open. */
+  .os24-footer-acc__icon {
+    display: block;
+    position: relative;
+    flex: 0 0 1.4rem;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .os24-footer-acc__icon::before,
+  .os24-footer-acc__icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    margin-top: -1px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform var(--duration-short) ease;
+  }
+
+  .os24-footer-acc__icon::after {
+    transform: rotate(90deg);
+  }
+
+  .os24-footer-acc[open] .os24-footer-acc__icon::after {
+    transform: rotate(0deg);
+  }
+
+  .os24-footer-acc .footer-block__details-content {
+    margin: 0;
+    padding-bottom: 1.6rem;
+  }
+
+  /* Space between the logo block and the first accordion row. */
+  .footer-block.grid__item:not(:has(> .os24-footer-acc)) {
+    margin-bottom: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .os24-footer-acc__summary {
+    cursor: default;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .os24-logo__img {
     transition: none;

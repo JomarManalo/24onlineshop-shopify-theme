@@ -75,8 +75,28 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
+                {%- comment -%}
+                  Menus and text blocks with a heading become an accordion on phones
+                  (closed by default). On tablet/desktop the script below keeps them open.
+                {%- endcomment -%}
+                {%- liquid
+                  assign os24_accordion = false
+                  if block.type == 'link_list' or block.type == 'text'
+                    if block.settings.heading != blank
+                      assign os24_accordion = true
+                    endif
+                  endif
+                -%}
+                {%- if os24_accordion -%}
+                  <details class="os24-footer-acc" data-os24-footer-acc>
+                  <summary class="os24-footer-acc__summary">
+                {%- endif -%}
                 {%- if block.settings.heading != blank -%}
                   <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                {%- endif -%}
+                {%- if os24_accordion -%}
+                  <span class="os24-footer-acc__icon" aria-hidden="true"></span>
+                  </summary>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -169,6 +189,9 @@
                       {%- endif -%}
                     </div>
                 {%- endcase -%}
+                {%- if os24_accordion -%}
+                  </details>
+                {%- endif -%}
               </div>
             {%- endfor -%}
           </div>
@@ -301,13 +324,8 @@
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
             <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-            <ul class="list list-payment" role="list">
-              {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </li>
-              {%- endfor -%}
-            </ul>
+            {%- comment -%} Fixed list (Visa, Mastercard, GCash, Maya) instead of shop.enabled_payment_types. {%- endcomment -%}
+            {%- render 'os24-payment-icons' -%}
           </div>
         {%- endif -%}
       </div>
@@ -335,6 +353,35 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Footer accordion: closed on phones, always open (and not collapsible) from 750px up.
+  (function () {
+    var desktop = window.matchMedia('(min-width: 750px)');
+    var items = document.querySelectorAll('#shopify-section-{{ section.id }} [data-os24-footer-acc]');
+
+    function sync() {
+      items.forEach(function (item) {
+        item.open = desktop.matches;
+      });
+    }
+
+    items.forEach(function (item) {
+      item.querySelector('summary').addEventListener('click', function (event) {
+        if (desktop.matches) event.preventDefault();
+      });
+    });
+
+    // Theme editor: open the block being edited.
+    document.addEventListener('shopify:block:select', function (event) {
+      var item = event.target.querySelector && event.target.querySelector('[data-os24-footer-acc]');
+      if (item) item.open = true;
+    });
+
+    sync();
+    desktop.addEventListener('change', sync);
+  })();
+</script>
 
 {% schema %}
 {
