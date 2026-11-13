@@ -1,8 +1,9 @@
 {%- comment -%}
   24 OnlineShop contact page: chat/call/email buttons and quick answers on the left,
-  the contact form (with topic and window measurements) on the right. On phones the
-  buttons come first. Contact details live in Theme settings › 24 · Contact details.
-  A "?topic=sizing" link (e.g. from the product size guide) preselects "Sizing help".
+  the contact form on the right. Name, email, phone, topic and message are required;
+  window measurements show only for "Custom size quote". On phones the buttons come
+  first. Contact details live in Theme settings › 24 · Contact details.
+  A "?topic=sizing" link (e.g. from the product size guide) preselects "Custom size quote".
 {%- endcomment -%}
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
 
@@ -78,9 +79,14 @@
                 id="ContactForm-name"
                 name="contact[{{ 'templates.contact.form.name' | t }}]"
                 value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                required
+                aria-required="true"
                 placeholder="{{ 'templates.contact.form.name' | t }}"
               >
-              <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+              <label class="field__label" for="ContactForm-name">
+                {{- 'templates.contact.form.name' | t }}
+                <span aria-hidden="true">*</span></label
+              >
             </div>
             <div class="field field--with-error">
               <input
@@ -98,10 +104,10 @@
                   aria-invalid="true"
                   aria-describedby="ContactForm-email-error"
                 {% endif %}
-                placeholder="{{ 'templates.contact.form.email' | t }}"
+                placeholder="Email, so we can reply"
               >
               <label class="field__label" for="ContactForm-email">
-                {{- 'templates.contact.form.email' | t }}
+                Email, so we can reply
                 <span aria-hidden="true">*</span></label
               >
               {%- if form.errors contains 'email' -%}
@@ -126,27 +132,41 @@
               class="field__input"
               autocomplete="tel"
               name="contact[{{ 'templates.contact.form.phone' | t }}]"
-              pattern="[0-9\-+ ]*"
+              pattern="[\d\s+\-\(\)]{7,}"
+              title="Mobile number, e.g. 0917 123 4567 or +63 917 123 4567"
               value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+              required
+              aria-required="true"
               placeholder="{{ 'templates.contact.form.phone' | t }}"
             >
-            <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+            <label class="field__label" for="ContactForm-phone">
+              {{- 'templates.contact.form.phone' | t }}
+              <span aria-hidden="true">*</span></label
+            >
           </div>
 
           <div class="os24-contact__select">
-            <label class="os24-contact__label" for="ContactForm-topic">Topic</label>
+            <label class="visually-hidden" for="ContactForm-topic">Topic</label>
             <div class="select">
-              <select id="ContactForm-topic" class="select__select" name="contact[Topic]">
-                <option value="Sizing help">Sizing help</option>
-                <option value="Order question">Order question</option>
-                <option value="Returns &amp; exchanges">Returns &amp; exchanges</option>
-                <option value="Other" selected>Other</option>
+              <select
+                id="ContactForm-topic"
+                class="select__select"
+                name="contact[Topic]"
+                required
+                aria-required="true"
+              >
+                <option value="" selected>Topic *</option>
+                <option value="Custom size quote">Custom size quote</option>
+                <option value="Order status">Order status</option>
+                <option value="Product question">Product question</option>
+                <option value="Other">Other</option>
               </select>
               <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
             </div>
           </div>
 
-          <fieldset class="os24-contact__measure">
+          {%- comment -%} Shown only when the topic is "Custom size quote" (script below). {%- endcomment -%}
+          <fieldset class="os24-contact__measure" id="ContactForm-measure" hidden>
             <legend class="os24-contact__label">Window size (optional, in inches)</legend>
             <div class="contact__fields">
               <div class="field">
@@ -183,17 +203,20 @@
               id="ContactForm-body"
               class="text-area field__input"
               name="contact[body]"
+              required
+              aria-required="true"
               placeholder="Message"
             >
               {{- form.body -}}
             </textarea>
-            <label class="form__label field__label" for="ContactForm-body">Message</label>
+            <label class="form__label field__label" for="ContactForm-body">
+              Message
+              <span aria-hidden="true">*</span></label
+            >
           </div>
 
           <div class="contact__button">
-            <button type="submit" class="button">
-              {{ 'templates.contact.form.send' | t }}
-            </button>
+            <button type="submit" class="button">Send message</button>
           </div>
         {%- endform -%}
       </div>
@@ -203,11 +226,21 @@
 
 <script>
   (function () {
-    var topic = new URLSearchParams(window.location.search).get('topic');
     var select = document.getElementById('ContactForm-topic');
-    if (!topic || !select) return;
-    var map = { sizing: 'Sizing help', order: 'Order question', returns: 'Returns & exchanges' };
-    if (map[topic]) select.value = map[topic];
+    var measure = document.getElementById('ContactForm-measure');
+    if (!select) return;
+
+    // "?topic=sizing" (from the product size guide) preselects Custom size quote.
+    var map = { sizing: 'Custom size quote', order: 'Order status', product: 'Product question' };
+    var topic = new URLSearchParams(window.location.search).get('topic');
+    if (topic && map[topic]) select.value = map[topic];
+
+    function toggleMeasure() {
+      if (measure) measure.hidden = select.value !== 'Custom size quote';
+    }
+
+    select.addEventListener('change', toggleMeasure);
+    toggleMeasure();
   })();
 </script>
 
@@ -235,7 +268,7 @@
       "type": "richtext",
       "id": "intro",
       "label": "Intro",
-      "default": "<p>Need help choosing a size? Send us your window measurements and we'll recommend the right curtain.</p>"
+      "default": "<p>Questions about a product, your order or a custom size? Message us and we'll get back to you during business hours.</p>"
     },
     {
       "type": "color_scheme",
