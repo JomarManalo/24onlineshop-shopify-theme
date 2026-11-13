@@ -1,16 +1,10 @@
 {%- comment -%}
-  Footer payment icons: the methods 24 OnlineShop accepts (no COD).
-  Visa and Mastercard use Shopify's built-in icons; GCash and Maya are simple
-  brand-colour badges in the same 38 × 24 size. To add or remove a method,
-  edit the list below.
+  Footer payment icons: the methods 24 OnlineShop accepts (no COD), in this order:
+  GCash, Maya, Visa, Mastercard. GCash and Maya are simple brand-colour badges in the
+  same 38 × 24 size as Shopify's built-in Visa and Mastercard icons. To add, remove or
+  reorder a method, edit the list below.
 {%- endcomment -%}
 <ul class="list list-payment" role="list">
-  <li class="list-payment__item">
-    {{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}
-  </li>
-  <li class="list-payment__item">
-    {{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}
-  </li>
   <li class="list-payment__item">
     <svg
       class="icon icon--full-color"
@@ -56,5 +50,11 @@
         fill="#00D66C"
       >maya</text>
     </svg>
+  </li>
+  <li class="list-payment__item">
+    {{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+  </li>
+  <li class="list-payment__item">
+    {{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}
   </li>
 </ul>
