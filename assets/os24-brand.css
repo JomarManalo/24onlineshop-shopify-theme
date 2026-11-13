@@ -130,6 +130,31 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .hxl {
   height: auto;
 }
 
+/* Phones: smaller logo tile with the tagline (and any social icons) beside it. */
+@media screen and (max-width: 749px) {
+  .footer-block__brand-info:has(> .os24-footer-logo) {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 1.6rem;
+    align-items: center;
+  }
+
+  .footer-block__brand-info:has(> .os24-footer-logo) > :not(.os24-footer-logo) {
+    grid-column: 2;
+  }
+
+  .footer-block__brand-info > .os24-footer-logo {
+    width: 7.2rem;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0;
+    border-radius: 1.2rem;
+  }
+
+  .footer-block__brand-info:has(> .os24-footer-logo) > .rte p {
+    margin: 0;
+  }
+}
+
 /* Footer accordion (Shop / Help / Contact us). Collapsible on phones only;
    from 750px the section script keeps every panel open. */
 .os24-footer-acc__summary {
