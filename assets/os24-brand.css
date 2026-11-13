@@ -871,3 +871,164 @@ os24-slider {
     transition: none;
   }
 }
+
+/* ---------- Contact page (sections/os24-contact.liquid) ---------- */
+.os24-contact__intro {
+  max-width: 64rem;
+  margin-bottom: 3.2rem;
+}
+
+.os24-contact__title {
+  margin: 0 0 1.2rem;
+}
+
+.os24-contact__lead {
+  color: rgba(var(--color-foreground), 0.85);
+  font-size: 1.7rem;
+}
+
+.os24-contact__lead > :first-child {
+  margin-top: 0;
+}
+
+.os24-contact__lead > :last-child {
+  margin-bottom: 0;
+}
+
+.os24-contact__grid {
+  display: grid;
+  gap: 3.2rem;
+}
+
+@media screen and (min-width: 990px) {
+  .os24-contact__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 5.6rem;
+    align-items: start;
+  }
+}
+
+.os24-contact__subhead {
+  margin: 0 0 1.6rem;
+}
+
+.os24-contact__aside {
+  background: rgb(var(--os24-cream));
+  color: rgb(var(--os24-ink));
+  border-radius: 2rem;
+  padding: 2.4rem;
+}
+
+.os24-contact__facts {
+  margin: 2rem 0 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(var(--os24-ink), 0.12);
+  display: grid;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.os24-contact__label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+.os24-contact__select {
+  margin-bottom: 2rem;
+}
+
+.os24-contact__measure {
+  margin: 0 0 1.2rem;
+  padding: 0;
+  border: 0;
+}
+
+.os24-contact__hint {
+  margin: -0.8rem 0 2rem;
+  font-size: 1.3rem;
+  color: rgb(var(--os24-muted));
+}
+
+.os24-contact .contact__button {
+  margin-top: 2rem;
+}
+
+/* Contact links: big buttons on the contact page, a simple list in the footer. */
+.os24-contact-links {
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.os24-contact-links__item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.os24-contact-links__item svg {
+  flex: 0 0 auto;
+}
+
+.os24-contact-links__label {
+  display: block;
+  font-weight: 600;
+}
+
+.os24-contact-links__detail {
+  display: block;
+  font-size: 1.3rem;
+  opacity: 0.8;
+  word-break: break-word;
+}
+
+.os24-contact-links--buttons .os24-contact-links__item {
+  min-height: 5.6rem;
+  padding: 1rem 1.6rem;
+  background: #fffbf5;
+  border: 2px solid rgb(var(--os24-ink));
+  border-radius: 1.4rem;
+  transition: background-color var(--duration-short) ease;
+}
+
+.os24-contact-links--buttons .os24-contact-links__item:hover {
+  background: rgb(var(--os24-orange));
+}
+
+.os24-contact-links--buttons li:first-child .os24-contact-links__item {
+  background: rgb(var(--os24-orange));
+}
+
+.os24-contact-links--buttons li:first-child .os24-contact-links__item:hover {
+  background: rgb(var(--os24-marigold));
+}
+
+.os24-contact-links__hours {
+  margin: 1.2rem 0 0;
+  font-size: 1.4rem;
+}
+
+.os24-contact-links--list {
+  gap: 1.2rem;
+}
+
+.os24-contact-links--list .os24-contact-links__item {
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.os24-contact-links--list .os24-contact-links__item:hover {
+  color: rgb(var(--color-foreground));
+}
+
+.os24-contact-links--list .os24-contact-links__label {
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+}
+
+.footer-block .os24-contact-links__hours {
+  color: rgba(var(--color-foreground), 0.75);
+}

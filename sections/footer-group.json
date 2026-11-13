@@ -49,10 +49,9 @@
           }
         },
         "contact": {
-          "type": "text",
+          "type": "os24_contact",
           "settings": {
-            "heading": "Contact us",
-            "subtext": "<p>Messenger: [Facebook page link]</p><p>Viber / SMS: [Mobile number]</p><p>Email: [Email address]</p><p>Hours: [e.g. Mon–Sat, 9am–6pm]</p>"
+            "heading": "Contact us"
           }
         }
       },

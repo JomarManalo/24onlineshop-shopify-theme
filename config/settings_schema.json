@@ -1451,5 +1451,37 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "24 · Contact details",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Used on the Contact page and in the footer's Contact us column. Leave a field empty to hide it."
+      },
+      {
+        "type": "url",
+        "id": "os24_messenger_url",
+        "label": "Messenger link",
+        "info": "Your Facebook page or m.me link, e.g. https://m.me/yourpage"
+      },
+      {
+        "type": "text",
+        "id": "os24_phone",
+        "label": "Mobile number (Viber / calls)",
+        "info": "International format, e.g. +639171234567"
+      },
+      {
+        "type": "text",
+        "id": "os24_email",
+        "label": "Email address"
+      },
+      {
+        "type": "text",
+        "id": "os24_hours",
+        "label": "Hours",
+        "default": "9am–6pm"
+      }
+    ]
   }
 ]

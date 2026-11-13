@@ -81,7 +81,7 @@
                 {%- endcomment -%}
                 {%- liquid
                   assign os24_accordion = false
-                  if block.type == 'link_list' or block.type == 'text'
+                  if block.type == 'link_list' or block.type == 'text' or block.type == 'os24_contact'
                     if block.settings.heading != blank
                       assign os24_accordion = true
                     endif
@@ -102,6 +102,10 @@
                 {%- case block.type -%}
                   {%- when '@app' -%}
                     {% render block %}
+                  {%- when 'os24_contact' -%}
+                    <div class="footer-block__details-content">
+                      {% render 'os24-contact-links', style: 'list' %}
+                    </div>
                   {%- when 'text' -%}
                     <div class="footer-block__details-content rte">
                       {{ block.settings.subtext }}
@@ -405,6 +409,23 @@
           "id": "menu",
           "default": "footer",
           "label": "t:sections.footer.blocks.link_list.settings.menu.label"
+        }
+      ]
+    },
+    {
+      "type": "os24_contact",
+      "name": "24 · Contact details",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shows Messenger, Viber, call and email from Theme settings › 24 · Contact details."
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Contact us",
+          "label": "Heading"
         }
       ]
     },
