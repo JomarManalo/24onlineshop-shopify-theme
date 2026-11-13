@@ -114,6 +114,7 @@
                       show_badges: true,
                       price_class: 'price--large'
                     -%}
+                    {%- render 'os24-price-note', variant: product.selected_or_first_available_variant -%}
                   </div>
                   {%- if product.quantity_price_breaks_configured? -%}
                     <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
@@ -761,6 +762,8 @@
       </div>
 
       {% render 'product-media-modal', variant_images: variant_images %}
+
+      {% render 'os24-size-guide', product: product, section_id: section.id %}
 
       {% assign popups = section.blocks | where: 'type', 'popup' %}
       {%- for block in popups -%}

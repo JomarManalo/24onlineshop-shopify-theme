@@ -1,0 +1,63 @@
+{%- comment -%}
+  Curtain size guide, opened by the "Which size?" link next to a "Size" option
+  (see snippets/product-variant-picker.liquid). Rendered once per product section,
+  only when the product has an option named "Size".
+
+  Accepts:
+  - product: {Object}
+  - section_id: {String}
+{%- endcomment -%}
+{%- assign option_names = product.options | join: '|' | downcase | split: '|' -%}
+{%- if option_names contains 'size' -%}
+<dialog
+  id="Os24SizeGuide-{{ section_id }}"
+  class="os24-size-guide color-scheme-1"
+  aria-labelledby="Os24SizeGuideTitle-{{ section_id }}"
+  onclick="if (event.target === this) this.close()"
+>
+  <div class="os24-size-guide__inner">
+    <div class="os24-size-guide__head">
+      <h2 id="Os24SizeGuideTitle-{{ section_id }}" class="h3">Which curtain size?</h2>
+      <button
+        type="button"
+        class="os24-size-guide__close"
+        aria-label="Close size guide"
+        onclick="this.closest('dialog').close()"
+      >
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <p>
+      Sizes are <strong>width × height</strong> of one panel, in inches. For example,
+      <strong>58" × 85"</strong> is 58 inches wide and 85 inches tall (1 ft = 12 in).
+    </p>
+
+    <h3 class="os24-size-guide__subhead">How to measure</h3>
+    <ol>
+      <li>
+        <strong>Height:</strong> measure from the curtain rod down to where you want the curtain
+        to end: just below the window sill, or about 1 inch above the floor.
+      </li>
+      <li>
+        <strong>Width:</strong> measure the length of the rod. For a full, gathered look, choose
+        panels that together are about 1.5–2× the rod width.
+      </li>
+      <li>
+        <strong>Rings:</strong> ring-top curtains hang slightly below the rod, so allow about
+        1–2 inches when measuring height.
+      </li>
+    </ol>
+
+    {%- assign contact_page = pages['contact'] -%}
+    <p class="os24-size-guide__note">
+      Not sure? Send us your window measurements and we'll help you pick.
+      {%- if contact_page != empty and contact_page.url != blank %}
+        <a href="{{ contact_page.url }}">Contact us</a>
+      {%- endif %}
+    </p>
+  </div>
+</dialog>
+{%- endif -%}

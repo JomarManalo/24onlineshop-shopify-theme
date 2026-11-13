@@ -1,0 +1,23 @@
+{%- comment -%}
+  Says what the price buys, from the selected variant's option values:
+  "3-in-1 Set" → "Price is for the set of 3 panels", "1 PC …" → "Price is for 1 panel".
+  Rendered inside the #price-… block so it refreshes when another variant is picked.
+
+  Accepts:
+  - variant: {Object} the selected variant
+{%- endcomment -%}
+{%- liquid
+  assign note = ''
+  for value in variant.options
+    assign value_down = value | downcase
+    if value_down contains '-in-1'
+      assign panels = value_down | split: '-in-1' | first | strip
+      assign note = 'Price is for the set of ' | append: panels | append: ' panels'
+    elsif value_down contains '1 pc'
+      assign note = 'Price is for 1 panel'
+    endif
+  endfor
+-%}
+{%- if note != blank -%}
+  <p class="os24-price-note">{{ note }}</p>
+{%- endif -%}

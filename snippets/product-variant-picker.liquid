@@ -50,8 +50,27 @@
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
-        <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
+        {%- comment -%}
+          24 OnlineShop: an option with only one choice (e.g. Header Type: 8 Rings) is hidden
+          but stays in the form so the variant still resolves. A curtain "Size" option gets a
+          "Which size?" link that opens the guide in snippets/os24-size-guide.liquid.
+        {%- endcomment -%}
+        {%- assign os24_option_name = option.name | downcase -%}
+        <fieldset class="js product-form__input product-form__input--pill{% if option.values.size == 1 %} os24-single-option{% endif %}">
+          <legend class="form__label">
+            {{ option.name }}
+            {%- if os24_option_name == 'size' -%}
+              <button
+                type="button"
+                class="os24-size-guide__open link"
+                aria-haspopup="dialog"
+                aria-controls="Os24SizeGuide-{{ section.id }}"
+                onclick="document.getElementById('Os24SizeGuide-{{ section.id }}').showModal()"
+              >
+                Which size?
+              </button>
+            {%- endif -%}
+          </legend>
           {% render 'product-variant-options',
             product: product,
             option: option,

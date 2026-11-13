@@ -3,13 +3,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -47,9 +40,9 @@
             "icon_1": "truck",
             "heading_1": "<strong>Delivery:</strong> 3–7 days to your door",
             "icon_2": "return",
-            "heading_2": "<strong>Returns:</strong> [Return policy]",
+            "heading_2": "<strong>Returns:</strong> 7-day returns",
             "icon_3": "lock",
-            "heading_3": "<strong>Secure checkout:</strong> [Payment methods]"
+            "heading_3": "<strong>Secure checkout:</strong> GCash, Maya, Visa, Mastercard"
           }
         },
         "description": {
@@ -67,7 +60,6 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "rating",
         "price",
@@ -81,14 +73,14 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
-        "media_fit": "cover",
+        "media_fit": "contain",
         "gallery_layout": "thumbnail",
         "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
-        "hide_variants": true,
+        "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 24,
         "padding_bottom": 48
@@ -97,7 +89,7 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "Complete the look",
+        "heading": "You may also like",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,

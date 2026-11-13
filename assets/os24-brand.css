@@ -677,6 +677,134 @@ os24-slider {
   color: rgb(var(--os24-burnt));
 }
 
+/* ---------- Product page: layout and buy box ---------- */
+/* Title one step smaller so price and options sit higher. */
+.product__title h1 {
+  font-size: calc(var(--font-heading-scale) * 2.6rem);
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 990px) {
+  .product__title h1 {
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
+  }
+}
+
+/* What the price buys ("Price is for the set of 3 panels"), under the price. */
+.os24-price-note {
+  margin: 0.4rem 0 0;
+  font-size: 1.4rem;
+  color: rgb(var(--os24-muted));
+}
+
+/* Options with a single choice (e.g. Header Type: 8 Rings) stay in the form but are hidden. */
+.product-form__input.os24-single-option {
+  display: none;
+}
+
+/* Description: darker, easier-to-read body text. */
+.product__info-container .product__description {
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+/* "Buy it now" becomes the outline button; "Add to cart" is the filled one. */
+.product-form__buttons .shopify-payment-button__button--unbranded {
+  --color-button: var(--color-secondary-button);
+  --color-button-text: var(--color-secondary-button-text);
+}
+
+.product-form__buttons .shopify-payment-button__button--unbranded::after {
+  --border-opacity: var(--buttons-border-opacity);
+}
+
+/* Desktop: keep the photos in view while the long info column scrolls. */
+@media screen and (min-width: 990px) {
+  .product__media-wrapper > media-gallery {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-height, 8rem) + 2rem);
+  }
+}
+
+/* "Which size?" link beside the Size label, and its dialog. */
+.os24-size-guide__open {
+  margin-left: 0.8rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 1.3rem;
+  color: rgb(var(--os24-burnt));
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  cursor: pointer;
+}
+
+.os24-size-guide {
+  width: min(56rem, calc(100vw - 3.2rem));
+  max-height: calc(100vh - 6.4rem);
+  padding: 0;
+  border: 0;
+  border-radius: 2rem;
+  background: rgb(var(--color-background));
+  color: rgb(var(--os24-ink));
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.25);
+}
+
+.os24-size-guide::backdrop {
+  background: rgba(28, 28, 28, 0.55);
+}
+
+.os24-size-guide__inner {
+  padding: 2.4rem;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.os24-size-guide__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.os24-size-guide__head h2 {
+  margin: 0;
+}
+
+.os24-size-guide__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(var(--os24-cream));
+  color: inherit;
+  cursor: pointer;
+}
+
+.os24-size-guide__subhead {
+  margin: 2rem 0 0.8rem;
+  font-size: 1.6rem;
+}
+
+.os24-size-guide ol {
+  margin: 0;
+  padding-left: 2rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.os24-size-guide__note {
+  margin: 2rem 0 0;
+  padding: 1.2rem 1.6rem;
+  border-radius: 1.2rem;
+  background: rgb(var(--os24-cream));
+}
+
 /* ---------- Mobile sticky add to cart ---------- */
 .os24-sticky-atc {
   position: fixed;
